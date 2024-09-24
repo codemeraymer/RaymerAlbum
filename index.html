@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Interactive Photo Album</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Raymer Photo Album</h1>
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="Search photos by tag...">
+                <button id="search-button" class="btn"><i class="fas fa-search"></i></button>
+            </div>
+        </header>
+        <main>
+            <div id="album-container">
+                <h2>Your Albums</h2>
+                <div id="album-list"></div>
+                <button id="create-album-button" class="btn">Create New Album</button>
+            </div>
+            <div id="photo-management">
+                <div id="upload-container">
+                    <div id="drag-drop-area">
+                        <p>Drag & Drop Photos Here</p>
+                        <input type="file" id="file-upload" accept="image/*" capture="camera" multiple>
+                        <button id="upload-button" class="btn">Upload Photos</button>
+                    </div>
+                </div>
+                <div id="batch-operations">
+                    <button id="select-all" class="btn">Select All</button>
+                    <button id="move-selected" class="btn">Move Selected</button>
+                    <button id="delete-selected" class="btn btn-danger">Delete Selected</button>
+                </div>
+                <div id="photo-container"></div>
+            </div>
+        </main>
+    </div>
+    <div id="lightbox" class="hidden">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Lightbox image">
+        <div id="lightbox-caption"></div>
+        <div id="lightbox-controls">
+            <button id="edit-photo" class="btn">Edit Photo</button>
+            <button id="share-photo" class="btn">Share Photo</button>
+            <button id="move-to-album" class="btn">Move to Album</button>
+            <button id="delete-photo" class="btn btn-danger">Delete Photo</button>
+        </div>
+        <div id="tags-container">
+            <input type="text" id="tag-input" placeholder="Add tags...">
+            <button id="add-tag" class="btn">Add Tag</button>
+            <div id="tags-list"></div>
+        </div>
+    </div>
+    <div id="editor" class="hidden">
+        <div id="editor-container">
+            <img id="editor-image" alt="Editor image">
+        </div>
+        <div id="editor-controls">
+            <button id="crop-button" class="btn">Crop</button>
+            <button id="rotate-left" class="btn">Rotate Left</button>
+            <button id="rotate-right" class="btn">Rotate Right</button>
+            <button id="apply-filter" class="btn">Apply Filter</button>
+            <button id="save-edit" class="btn">Save Changes</button>
+            <button id="cancel-edit" class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+    <div id="share-modal" class="hidden">
+        <div class="modal-content">
+            <h2>Share Photo</h2>
+            <input type="text" id="share-link" readonly>
+            <button id="copy-link" class="btn">Copy Link</button>
+            <button id="close-share-modal" class="btn">Close</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
